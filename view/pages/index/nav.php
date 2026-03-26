@@ -13,7 +13,7 @@
 <li class="nav-item"><a href="instructor.php" class="nav-link">Instructor</a></li>
 <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
 <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-<!-- <li class="nav-item"><a href="registration.php" class="nav-link">Registration </a></li> -->
+<li class="nav-item"><a href="page.php" class="nav-link">Page </a></li>
 </ul>
 </div>
 </div>

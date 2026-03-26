@@ -14,3 +14,4 @@
 <script src="assets/js/google-map.js"></script>
 <script src="assets/js/main.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>

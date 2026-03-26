@@ -8,7 +8,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 <div class="container">
 <a class="navbar-brand" href="index.php"><span>Study</span>Lab</a>
-
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav">
 <span class="navbar-toggler-icon"></span>
 </button>
@@ -21,102 +20,157 @@
 <li class="nav-item"><a href="instructor.php" class="nav-link">Instructor</a></li>
 <li class="nav-item"><a href="blog.php" class="nav-link">Blog</a></li>
 <li class="nav-item"><a href="contact.php" class="nav-link">Contact</a></li>
-<li class="nav-item active"><a href="registration.php" class="nav-link">Registration</a></li>
+<li class="nav-item"><a href="registration.php" class="nav-link">Registration</a></li>
 </ul>
 </div>
 </div>
 </nav>
 
-<section class="hero-wrap text-center text-white" style="background-image: url('assets/images/bg_2.jpg'); padding: 60px 0;">
-<h2>Student Registration</h2>
+<section class="hero-wrap hero-wrap-2" style="background-image: url('assets/images/bg_2.jpg');">
+<div class="overlay"></div>
+<div class="container">
+<div class="row no-gutters slider-text align-items-end justify-content-center">
 </section>
-
 <style>
 .form-container {
-    max-width: 500px;
+    max-width: 650px;
     margin: 50px auto;
     background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .form-container h2 {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    font-weight: 700;
+    color: #333;
 }
 
-.form-container label {
+/* Grid layout */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-group label {
     font-weight: 600;
+    display: block;
+    margin-bottom: 5px;
+    color: #555;
 }
 
-.form-container input {
+.form-group input,
+.form-group select {
     width: 100%;
     padding: 10px;
-    margin: 8px 0 15px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+/* Focus effect */
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 5px rgba(78,115,223,0.2);
+    outline: none;
 }
 
 .btn-group {
     text-align: center;
+    margin-top: 15px;
 }
 
 .btn-group button {
-    margin: 5px;
+    margin: 6px;
+    padding: 10px 18px;
+    border-radius: 20px;
+    font-weight: 600;
 }
 
 .error {
     color: red;
     font-size: 13px;
+    margin-top: 3px;
 }
 </style>
 
 <div class="form-container">
 
-<h2>Student Details</h2>
-
+<h2>Add Details</h2>
 <form name="myForm" action="stdetails.php" method="POST" onsubmit="return validateForm()">
 
-<label>ID</label>
-<input type="text" name="id"required placeholder="Enter ID">
+<div class="form-row">
+    <div class="form-group">
+        <label>ID</label>
+        <input type="text" name="id" required placeholder="Enter ID">
+    </div>
+    <div class="form-group">
+        <label>Name</label>
+        <input type="text" name="name" placeholder="Enter your name">
+    </div>
+</div>
 
-<label>Name</label>
-<input type="text" name="name" placeholder="Enter your name">
+<div class="form-row">
+    <div class="form-group">
+        <label>Email</label>
+        <input type="text" name="email" placeholder="Enter your email">
+        <div id="emailError" class="error"></div>
+    </div>
+    <div class="form-group">
+        <label>Phone</label>
+        <input type="text" name="phone" placeholder="Enter phone number">
+        <div id="phoneError" class="error"></div>
+    </div>
+</div>
 
-<label>Email</label>
-<input type="text" name="email" placeholder="Enter your email">
-<div id="emailError" class="error"></div>
+<div class="form-row">
+    <div class="form-group">
+        <label>Age</label>
+        <input type="number" name="Age" placeholder="Enter your age">
+    </div>
+    <div class="form-group">
+        <label>Gender</label>
+        <select name="gender">
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+    </div>
+</div>
 
-<label>Phone</label>
-<input type="text" name="phone" placeholder="Enter phone number">
-<div id="phoneError" class="error"></div>
+<div class="form-group">
+    <label>Address</label>
+    <input type="text" name="address" placeholder="Enter your address">
+</div>
 
-<label>Age</label>
-<input type="number" name="age" placeholder="Enter your age">
-
-<label>Gender</label>
-<input type="text" name="gender" placeholder="Enter your gender">
-
-<label>Address</label>
-<input type="text" name="address" placeholder="Enter your address">
-
-<label>Fee</label>
-<input type="number" name="fee" placeholder="Enter fee">
-
-<label>Date</label>
-<input type="date" name="date">
+<div class="form-row">
+    <div class="form-group">
+        <label>Fee</label>
+        <input type="number" name="fee" placeholder="Enter fee">
+    </div>
+    <div class="form-group">
+        <label>Date</label>
+        <input type="date" name="date">
+    </div>
+</div>
 
 <div class="btn-group">
-<button type="submit" name="insert" id="insert" class="btn btn-success" onclick="return validateForm()">Insert</button>
-<button type="submit" name="delete" class="btn btn-danger">Delete</button>
-<button type="submit" name="update" id="update" class="btn btn-warning" onclick="return validateForm()">Update</button>
-<button type="submit" name="select" class="btn btn-primary">Select</button>
+    <button type="submit" name="insert"  id="insert" class="btn btn-primary">Insert</button>
+    <button type="submit" name="delete"  id="delete" class="btn btn-danger">Delete</button>
+    <button type="submit" name="update"  id="update" class="btn btn-warning">Update</button>
+    <button type="submit" name="select"  id="select" class="btn btn-success">Select</button>
+    <button type="reset"  id="clear" class="btn btn-primary">Clear</button>
 </div>
-
 </form>
 </div>
-
 <script>
 function validateForm() {
 
@@ -150,3 +204,9 @@ function validateForm() {
 
 </body>
 </html>
+<script>
+   $("#clear").click(function(){
+    alert("clear: successfully" + $("#test").html());
+
+  });
+    </script>
